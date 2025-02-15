@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Your Nutrition & Health</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Moniter.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Moniter-effects.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div id="container1">
+            <div id="box1">
+                <div id="logo">
+                    <span id="logo-text">SmartBite</span>
+                </div>
+            </div>
+            <div id="box2">
+                <div id="links">
+                    <a class="head-ancr" href="{{ url_for('home') }}">About</a>
+                    <a class="head-ancr" href="{{ url_for('home') }}">Health</a>
+                    <a class="head-ancr" href="{{ url_for('home') }}">Food</a>
+                </div>
+                <div id="icons">
+                    <a class="head-ancr-icon" href="#"><i class="fa-solid fa-moon"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div id="container2">
+            <div id="mb1">
+                <div id="mb11">
+                    <span id="headline-text">Monitor Your Nutrition & Health in One Place</span>
+                    <br><br><br>
+                    <span id="content-para">Track calories, nutrients, and food intake effortlessly with AI-powered insights.</span>
+                </div>
+
+                <div id="mb22">
+                    <span id="inputbox-heading">Upload Food Image</span>
+                    
+                    <!-- Image Upload & Processing Form -->
+                    <form id="mainform" enctype="multipart/form-data">
+                        <label for="fileupload" class="c-f-u">Select Food Image</label>
+                        <input type="file" name="file" id="fileupload" accept="image/*" required>
+                        <button type="submit">Upload</button>
+                    </form>
+
+                    <!-- Image Preview -->
+                    <div id="preview-container">
+                        <img id="image-preview" src="" alt="Image Preview" style="display: none;">
+                    </div>
+
+                    <!-- Loading Indicator -->
+                    <div id="loading" style="display: none;">
+                        <p>Processing image... Please wait</p>
+                    </div>
+
+                    <!-- Display AI Model Prediction Result -->
+                    <div id="prediction-result" style="display: none;">
+                        <h3>Food Item: <span id="food-item"></span></h3>
+                        <p><strong>Calories:</strong> <span id="calories"></span></p>
+                        <p><strong>Protein:</strong> <span id="protein"></span>g</p>
+                        <p><strong>Fat:</strong> <span id="fat"></span>g</p>
+                        <p><strong>Ingredients:</strong> <span id="ingredients"></span></p>
+                        <p><strong>Description:</strong> <span id="description"></span></p>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="error-message" style="display: none;">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div id="container3">
+            <div id="footer-icon" class="icons">
+                <a href="#" class="footer-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="footer-icon"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="footer-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="member">
+                <p><strong>Member:</strong> Akshad Aloni, Punam Khedikar, Anamika Patil, Sarang Khandate</p>
+            </div>
+            <br>
+            <div class="college">
+                <p><strong>College:</strong> Suryodaya College of Engineering & Technology</p>
+            </div>
+            <br>
+            <div class="year">
+                <p><strong>Year:</strong> 2nd</p>
+            </div>
+            <br>
+            <div class="department">
+                <p><strong>Department:</strong> CSE [Data Science]</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript to Handle Image Upload & AI Processing -->
+    <script>
+        document.getElementById("mainform").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            
+            const fileInput = document.getElementById("fileupload");
+            if (fileInput.files.length === 0) {
+                alert("Please select a file to upload!");
+                return;
+            }
+        
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+        
+            // Show loading indicator
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("prediction-result").style.display = "none";
+            document.getElementById("error-message").style.display = "none";
+        
+            try {
+                const response = await fetch("/upload", {
+                    method: "POST",
+                    body: formData
+                });
+        
+                const data = await response.json(); // Only call `.json()` once
+        
+                document.getElementById("loading").style.display = "none";
+        
+                if (response.ok) {
+                    document.getElementById("food-item").textContent = data.food_item;
+                    document.getElementById("calories").textContent = data.calories;
+                    document.getElementById("protein").textContent = data.protein;
+                    document.getElementById("fat").textContent = data.fat;
+                    document.getElementById("ingredients").textContent = data.ingredients;
+                    document.getElementById("description").textContent = data.description;
+                    document.getElementById("prediction-result").style.display = "block";
+                } else {
+                    document.getElementById("error-message").textContent = data.error;
+                    document.getElementById("error-message").style.display = "block";
+                }
+            } catch (error) {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("error-message").textContent = "Error processing image. Please try again.";
+                document.getElementById("error-message").style.display = "block";
+            }
+        });
+        
+    </script>
+
+</body>
+</html>

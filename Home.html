@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Home-effects.css') }}">
+<script src="{{ url_for('static', filename='js/some_script.js') }}"></script>
+</head>
+<body>
+    <header>
+        <div id="container1">
+            <div id="box1">
+                <div id="logo">
+                    <span id="logo-text">SmartBite</span>
+                </div>
+            </div>
+
+            <div id="box2">
+                <div id="links">
+                    <a class="head-ancr" href="#about-text">About</a>
+
+                    <a class="head-ancr" href="#health">Health</a>
+
+                    <a class="head-ancr" href="#food">Food</a>
+                </div>
+
+                <div id="icons">
+                    <a class="head-ancr-icon" href="C:\Main Drives\Projects\HT\Construction\ConstructionPage.html"><i class="fa-solid fa-moon"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="container2">
+            <div id="mbox1" class="effects">
+                <span id="mheadline">AI-Powered Food Label Analyzer for Smarter Eating</span>
+            </div>
+
+            <hr>
+
+            <div id="content-box" class="effects">
+                <div id="cb1">
+                    <span id="p1headin" class="heading-content">Welcome to SmartBite!</span>
+
+                    <br><br>
+
+                    <span class="paragraph-text">Eating healthy starts with understanding what’s in your food. Our platform helps you decode nutrition labels, analyze ingredients, and make informed dietary choices. Whether you're looking to track calories, identify allergens, or avoid hidden sugars, we’ve got you covered!</span>
+                </div>
+
+                <br><br><br>
+
+                <div id="cb2">
+                    <span id="p2headin" class="heading-content">Why Food Labels Matter?</span>
+
+                    <br><br>
+
+                    <span class="paragraph-text">Food labels provide essential information about what we consume daily. They help us understand portion sizes, nutrient breakdowns, and ingredient lists. By learning how to read these labels correctly, you can maintain a balanced diet, manage your health conditions, and avoid misleading marketing claims.</span>
+                </div>
+
+                <br><br><br>
+
+                <div id="cb3">
+                    <span id="p3headin" class="heading-content">Monitor Your Health with Smart Tools</span>
+
+                    <br><br>
+
+                    <span class="paragraph-text">Take control of your nutrition with our interactive tools. Simply upload a food label or enter product details to get a detailed nutritional breakdown. Get real-time insights on calories, protein, fats, carbohydrates, and more to ensure you meet your dietary goals.</span>
+                </div>
+
+                <br><br><br>
+
+                <div id="cb4">
+                    <span id="p4headin" class="heading-content">Join the SmartBite Community!</span>
+
+                    <br><br>
+
+                    <span class="paragraph-text">Stay informed with expert tips, health blogs, and personalized nutrition advice. Whether you're a fitness enthusiast, someone with dietary restrictions, or just looking to eat healthier, SmartBite is here to guide you every step of the way!</span>
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="about-text" class="effects">
+                <p class="sub-h">About <span class="abouthl">SmartBite</span></p>
+                <br><br><br>
+                <p class="sub-p">
+                    Welcome to <span class="abouthl">SmartBite</span>, your go-to platform for understanding food labels and making healthier choices!  
+                    We believe that knowing what’s inside your food is the first step toward a better lifestyle.  
+                    Our mission is to educate and empower people to read food labels, analyze ingredients, and track their nutrition effectively.
+                </p>
+                <br><br>
+                <h3 id="aboutsub">Why Choose SmartBite?</h3>
+                <br>
+                <ul id="uld">
+                    <li class="sub-p">📊 <strong>Easy-to-Use Analysis Tool:</strong> Upload food labels and get instant insights.</li>
+                    <br>
+                    <li class="sub-p">🥦 <strong>Healthy Eating Tips:</strong> Learn to identify misleading food marketing tricks.</li>
+                    <br>
+                    <li class="sub-p">💡 <strong>Expert Advice:</strong> Stay informed with nutrition blogs and research-backed guidance.</li>
+                    <br>
+                    <li class="sub-p">🔎 <strong>Transparency:</strong> Decode hidden sugars, preservatives, and artificial additives.</li>
+                </ul>
+            </div>
+
+            <br><br><hr><br><br>
+
+            <div id="health">
+                <span class="sub-h">Health</span>
+                <br><br><br>
+                <p class="sub-p">
+                    Understanding nutrition is the key to a healthier lifestyle.  
+                    The food we eat directly impacts our energy levels, mental clarity, and overall well-being.  
+                    By choosing nutrient-rich foods and avoiding processed additives, you can improve your health significantly.
+                </p>
+                <p class="sub-p">
+                    At <span class="abouthl">SmartBite</span>, we provide insights into food labels, helping you make informed decisions.  
+                    Learn about essential nutrients, vitamins, and how to maintain a balanced diet.
+                </p>
+            </div>
+
+            <br><br><hr><br><br>
+
+            <div id="food">
+                <span class="sub-h">Food</span>
+                <br><br><br>
+                <p class="sub-p">
+                    Food labels can be tricky, with hidden ingredients and misleading marketing terms.  
+                    Our platform helps you decode nutritional facts, identify harmful additives, and select healthier alternatives.
+                </p>
+                <p class="sub-p">
+                    Whether you're aiming for weight management, improved digestion, or enhanced energy,  
+                    understanding food labels is your first step toward better eating habits.
+                </p>
+            </div>
+
+            <br><br>
+        </div>
+
+        <hr>
+
+        <div id="next-btn" class="effects">
+            <div id="btn-border">
+                <a id="moniter" href="{{ url_for('monitoring') }}">
+                    <span id="moniter-text">Moniter</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="container3" class="effects">
+            <div id="footer-icon" class="icons">
+                <a href="C:\Main Drives\Projects\HT\Construction\ConstructionPage.html" class="footer-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+
+                <a href="C:\Main Drives\Projects\HT\Construction\ConstructionPage.html" class="footer-icon"><i class="fa-brands fa-github"></i></a>
+
+                <a href="C:\Main Drives\Projects\HT\Construction\ConstructionPage.html" class="footer-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="member">
+                <p><strong>Member:</strong> Akshad Aloni, Punam Khedikar, Anamika Patil, Sarang Khandate</p>
+            </div>
+            <br>
+            <div class="college">
+                <p><strong>College:</strong> Suryodaya College of Engineering & Technology</p>
+            </div>
+            <br>
+            <div class="year">
+                <p><strong>Year:</strong> 2nd</p>
+            </div>
+            <br>
+            <div class="department">
+                <p><strong>Department:</strong> CSE [Data Science]</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

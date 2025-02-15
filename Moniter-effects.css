@@ -1,0 +1,6 @@
+.head-ancr:hover,.head-ancr-icon:hover,.footer-icon:hover{
+    border-bottom: 2px solid black;
+    padding-bottom: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
